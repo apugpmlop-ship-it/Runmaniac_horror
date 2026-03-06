@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>RunManiac Horror</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(to bottom, #1a1a1a, #000000),
+                             radial-gradient(circle at 50% 50%, rgba(255, 0, 0, 0.1), transparent),
+                             repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) 20px, transparent 20px, transparent 40px);
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: multiply;
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+        }
+        
+        h1 {
+            font-size: 72px;
+            color: red;
+            margin-bottom: 10px;
+            animation: blink 1s infinite alternate;
+        }
+        
+        @keyframes blink {
+            from { opacity: 1; }
+            to { opacity: 0.5; }
+        }
+        
+        .intro-text {
+            font-size: 24px;
+            line-height: 1.5;
+            max-width: 80%;
+            margin: auto;
+        }
+        
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            user-select: none;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #read-more-btn {
+            background-color: #f26b6b;
+            color: white;
+            margin-top: 20px;
+            
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to right, rgba(255, 0, 0, 0.1), rgba(255, 0, 0, 0));
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            &:hover::before {
+                transform: translateX(0);
+            }
+        }
+        
+        #download-btn {
+            background-color: #ffd700;
+            color: black;
+            margin-top: 40px;
+            
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(at 50% 50%, rgba(0, 0, 0, 0.3), transparent);
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+            }
+            &:active::after {
+                opacity: 1;
+            }
+        }
+        
+        #rules-container {
+            display: none;
+            font-size: 18px;
+            line-height: 1.5;
+            max-width: 80%;
+            margin: auto;
+            margin-top: 20px;
+        }
+        
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin: 20px;
+        }
+        
+        .beta-section {
+            position: relative;
+            overflow: hidden;
+            padding-top: 50px;
+        }
+        
+        .in-development {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 36px;
+        }
+        
+        footer {
+            font-size: 12px;
+            color: grey;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Верхняя секция -->
+    <h1><strong>RUNMANIAC<br/>HORROR</strong></h1>
+    <div class="intro-text">Добро пожаловать в RunManiac Horror!</div>
+    <p class="intro-text">Погрузитесь в мир ужасов и попробуйте выбраться живым.</p>
+    
+    <!-- Кнопка читать далее -->
+    <button id="read-more-btn">Читать далее</button>
+    
+    <!-- Правила игры -->
+    <div id="rules-container">
+        Цель: в игре будет 3 маньяка, и надо будет от них сбежать.<br/>
+        Будет 3 этажа:<br/>
+        &nbsp;&nbsp;- На 1 этаже будет 1 маньяк, который плохо слышит.<br/>
+        &nbsp;&nbsp;- На 2 этаже тоже 1 и тут должна быть кнопка 'читать далее', когда нажимаешь на неё открывается весь текст: маньяк, который уже плохо видит.<br/>
+        &nbsp;&nbsp;- На 3 этаже, хорошо слышит и хорошо видит.<br/><br/>
+        
+        Чтобы сбежать с 1 этажа, надо найти ключи (3 ключа) и код от замка.<br/>
+        Со 2 этажа надо будет найти молоток, ключи (5 ключей) и найти код от замка.<br/>
+        С 3 — надо найти ключи (10 ключей), код от замка (2): 1 код, как обычно, 2 код — он будет расположен в начальной комнате на ноутбуке (код разный), молот, отвертку и ножницы.<br/><br/>
+        
+        Если вас поймал маньяк, вы будете в какой-то комнате на этаже, где он поймал.<br/>
+        На каждом этаже будет по 2 комнаты .<br/><br/>
+        
+        У вас будет 5 попыток.
+    </div>
+    
+    <!-- Кнопка Скачать -->
+    <button id="download-btn">Скачать</button>
+    
+    <!-- Изображения -->
+    <img src="https://giga.chat/gigachat/files/public/generated/9ce55c58-8813-472f-a287-579cd8695c2a " alt="Placeholder Image"/>
+    <img src="placeholder.jpg" alt="Placeholder Image"/>
+    <img src="placeholder.jpg" alt="Placeholder Image"/>
+    <img src="placeholder.jpg" alt="Placeholder Image"/>
+    
+    <!-- Нижняя секция -->
+    <section class="beta-section">
+        <span class="in-development">В разработке</span>
+        <div style="display:flex; justify-content:center; gap:20px;">
+            <button>BETA 📱</button>
+            <button>ANDROID 📱</button>
+            <button>PC 🖥️</button>
+        </div>
+    </section>
+    
+    <!-- Подвал -->
+    <footer>&lt;&lt;jodik&gt;&gt;</footer>
+    
+    <script>
+        // Скрыть/показать правила игры
+        document.getElementById('read-more-btn').addEventListener('click', function() {
+            const rulesContainer = document.getElementById('rules-container');
+            if (rulesContainer.style.display === 'none') {
+                rulesContainer.style.display = 'block';
+            } else {
+                rulesContainer.style.display = 'none';
+            }
+        });
+        
+        // Перейти вниз страницы при клике на кнопку "Скачать"
+        document.getElementById('download-btn').addEventListener('click', function() {
+            window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
+        });
+    </script>
+    
+    <!-- Атмосферная музыка -->
+    <audio autoplay loop>
+        <source src="spooky-sounds.mp3" type="audio/mpeg">
+    </audio>
+</body>
+</html>
+
+
